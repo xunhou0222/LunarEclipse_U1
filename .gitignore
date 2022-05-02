@@ -1,3 +1,4 @@
 .DS_Store
 src/*.o
 lib/testeph/*.o
+lib/SOFA_f77_20210512/*.o
