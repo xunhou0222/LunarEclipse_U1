@@ -4,6 +4,8 @@
 FC = gfortran-11
 FFLAGS = -c -O -Wall
 
+.SILENT : 
+
 #----YOU SHOULDN'T HAVE TO MODIFY ANYTHING BELOW THIS LINE---------
 
 # The list of installation directories.
@@ -34,7 +36,7 @@ $(SOFA_LIB_NAME) : $(SOFA_OBS)
 
 # Install the library.
 install $(SOFA_LIB) : $(INSTALL_DIRS) $(SOFA_LIB_NAME)
-	cp $(SOFA_LIB_NAME) $(INSTALL_DIRS)
+	mv $(SOFA_LIB_NAME) $(INSTALL_DIRS)
 	-@echo ""
 	-@echo "SOFA library has been installed successfully!"
 	-@echo ""
@@ -47,12 +49,17 @@ $(INSTALL_DIRS):
 # Delete object files.
 .PHONY : clean cleanall
 clean :
-	rm $(SOFA_OBS)
+	rm -f $(SOFA_OBS)
+	-@echo ""
+	-@echo "All object files associated with libsofa_20210512.a have been deleted!"
+	-@echo ""
 
 # Delete all generated binaries in the current directory.
 cleanall:
-	rm -rf $(SOFA_LIB) $(SOFA_OBS)
-
+	rm -f $(SOFA_LIB) $(SOFA_OBS)
+	-@echo ""
+	-@echo "All object files associated with libsofa_20210512.a and the library iteself have been deleted!"
+	-@echo ""
 
 #-----------------------------------------------------------------------
 

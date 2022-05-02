@@ -1,10 +1,13 @@
 SUBDIRS = lib/testeph lib/SOFA_f77_20210512 src
 .PHONY : $(SUBDIRS) clean cleanall
 
+
+.SILENT :
+
 all : $(SUBDIRS)
-	-@echo ""
-	-@echo "2 libraries (SOFA and testeph) and one binary (EclipseFirst) have been built successfully!"
-	-@echo ""
+	-echo ""
+	-echo "2 libraries (SOFA and testeph) and one binary (EclipseFirst) have been built successfully!"
+	-echo ""
 
 $(SUBDIRS) :
 	make -C $@
