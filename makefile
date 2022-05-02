@@ -10,7 +10,7 @@ $(SUBDIRS) :
 	make -C $@
 	make -C $@ install
 
-src : lib/testeph
+src : lib/testeph lib/SOFA_f77_20210512
 
 
 clean : 
